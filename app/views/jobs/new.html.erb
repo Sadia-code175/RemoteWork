@@ -1,0 +1,33 @@
+
+<h1>Post a New Job</h1>
+
+<%= form_for @job do |f| %>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :requirements %>
+    <%= f.text_area :requirements %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :salary %>
+    <%= f.number_field :salary, step: 0.01 %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :skills_required %>
+    <%= f.text_area :skills_required, placeholder: "Comma separated skills" %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit "Post Job" %>
+  </div>
+<% end %>

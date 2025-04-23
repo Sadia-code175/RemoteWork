@@ -1,0 +1,19 @@
+
+<div class="profile">
+  <h1>Your Profile</h1>
+  
+  <% if current_user.freelancer? %>
+    <h2>Freelancer Profile</h2>
+    <p><strong>Skills:</strong> <%= @profile.skills %></p>
+    <p><strong>Projects:</strong> <%= @profile.projects %></p>
+    <p><strong>Hourly Rate:</strong> $<%= @profile.hourly_rate %></p>
+    <p><strong>CV:</strong> <%= simple_format(@profile.cv_data) %></p>
+  <% else %>
+    <h2>Company Profile</h2>
+    <p><strong>Company Name:</strong> <%= @profile.company_name %></p>
+    <p><strong>Website:</strong> <%= link_to @profile.website, @profile.website %></p>
+    <p><strong>Company Details:</strong> <%= simple_format(@profile.company_details) %></p>
+  <% end %>
+  
+  <%= link_to 'Edit Profile', edit_profile_path, class: 'btn btn-primary' %>
+</div>

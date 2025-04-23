@@ -1,0 +1,10 @@
+
+<div class="profile-edit">
+  <h1>Edit Your Profile</h1>
+  
+  <% if current_user.freelancer? %>
+    <%= render 'freelancer_form' %>
+  <% else %>
+    <%= render 'client_form' %>
+  <% end %>
+</div>

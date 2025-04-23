@@ -1,0 +1,26 @@
+
+<%= form_for @profile, url: profile_path, method: :patch do |f| %>
+  <div class="field">
+    <%= f.label :skills %><br>
+    <%= f.text_area :skills, placeholder: "List your skills separated by commas" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :projects %><br>
+    <%= f.text_area :projects, placeholder: "Describe your past projects" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :hourly_rate %><br>
+    <%= f.number_field :hourly_rate, step: 0.01 %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :cv_data, "CV/Resume" %><br>
+    <%= f.text_area :cv_data, placeholder: "Paste your CV content here" %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit "Update Profile" %>
+  </div>
+<% end %>

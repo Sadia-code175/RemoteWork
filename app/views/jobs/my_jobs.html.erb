@@ -1,0 +1,51 @@
+
+<h1>Your Job Postings</h1>
+
+<% @jobs.each do |job| %>
+  <div class="job-card">
+    <h3><%= job.title %></h3>
+    <p><strong>Description:</strong> <%= job.description %></p>
+    <p><strong>Salary:</strong> $<%= job.salary %></p>
+    
+    <h4>Applications</h4>
+    <% job.applications.each do |application| %>
+      <div class="application">
+        <p><strong>Freelancer:</strong> <%= application.freelancer_profile.user.username %></p>
+        <p><strong>Status:</strong> <%= application.status %></p>
+        
+        <% if application.status == 'applied' %>
+          <%= button_to "Hire", hire_job_path(job, application_id: application.id), method: :post %>
+        <% end %>
+        
+        <%= link_to "View Profile", profile_path(application.freelancer_profile.user) %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<%= link_to "Post New Job", new_job_path %># app/views/jobs/my_jobs.html.erb
+<h1>Your Job Postings</h1>
+
+<% @jobs.each do |job| %>
+  <div class="job-card">
+    <h3><%= job.title %></h3>
+    <p><strong>Description:</strong> <%= job.description %></p>
+    <p><strong>Salary:</strong> $<%= job.salary %></p>
+    
+    <h4>Applications</h4>
+    <% job.applications.each do |application| %>
+      <div class="application">
+        <p><strong>Freelancer:</strong> <%= application.freelancer_profile.user.username %></p>
+        <p><strong>Status:</strong> <%= application.status %></p>
+        
+        <% if application.status == 'applied' %>
+          <%= button_to "Hire", hire_job_path(job, application_id: application.id), method: :post %>
+        <% end %>
+        
+        <%= link_to "View Profile", profile_path(application.freelancer_profile.user) %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<%= link_to "Post New Job", new_job_path %>

@@ -1,0 +1,18 @@
+
+<h1>Your Notifications</h1>
+
+<% if @notifications.any? %>
+  <ul>
+    <% @notifications.each do |notification| %>
+      <li class="<%= 'unread' unless notification.read %>">
+        <%= notification.message %>
+        <small><%= time_ago_in_words(notification.created_at) %> ago</small>
+        <% unless notification.read %>
+          <%= link_to 'Mark as read', mark_as_read_notification_path(notification), method: :patch %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>You have no notifications.</p>
+<% end %>
