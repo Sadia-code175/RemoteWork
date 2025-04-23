@@ -12,5 +12,5 @@ Setup their account (e.g. add skills, update profile picture etc.) ,
 Freelancers get SMS notification when they are hired for a job.
 
 Stack: 
-Rails
+Rails ,
 mysql
